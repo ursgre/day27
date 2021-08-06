@@ -1,0 +1,8 @@
+const myVar = "Marcin";
+console.log(myVar + "!"); //Marcin!
+
+const tab = ["Marcin", "Ania"]
+console.log(tab[0] + "!"); //Marcin!
+
+const name = tab[1];
+console.log(name.toUpperCase() + " jest lepsza"); //ANIA jest lepsza

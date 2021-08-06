@@ -1,0 +1,54 @@
+<form class="form" method="post">
+    <div class="form-row">
+        <label for="name">Imię (min. 3 znaki)*</label>
+        <input type="text" required name="name" id="name">
+    </div>
+    <div class="form-row">
+        <label for="email">Email*</label>
+        <input type="email" required name="email" id="email">
+    </div>
+    <div class="form-message"></div>
+    <div class="form-row">
+        <button type="submit" class="button submit-btn">
+            Wyślij
+        </button>
+    </div>
+</form>
+
+const form = document.querySelector("form");
+const inputName = form.querySelector("input[name=name]");
+const inputEmail = form.querySelector("input[name=email]");
+const formMessage = form.querySelector(".form-message");
+
+form.setAttribute("novalidate", true);
+
+form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    let formErrors = [];
+
+    //-------------------------
+    //2 etap - sprawdzamy poszczególne pola gdy ktoś chce wysłać formularz
+    //-------------------------
+    if (!inputName.checkValidity()) {
+        formErrors.push("Wypełnij poprawnie pole z imieniem");
+    }
+
+    if (!inputEmail.checkValidity()) {
+        formErrors.push("Wypełnij poprawnie pole z emailem");
+    }
+
+    if (!formErrors.length) { //jeżeli nie ma błędów wysyłamy formularz
+        e.target.submit();
+        //...lub dynamicznie wysyłamy dane za pomocą Ajax
+        //równocześnie reagując na odpowiedź z serwera
+    } else {
+        //jeżeli jednak są jakieś błędy...
+        formMessage.innerHTML = `
+            <h3 class="form-error-title">Błędnie wypełniłeś pola:</h3>
+            <ul class="form-error-list">
+                ${formErrors.map(el => `<li>${el}</li>`).join("")}
+            </ul>
+        `;
+    }
+});

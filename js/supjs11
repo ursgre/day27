@@ -1,0 +1,20 @@
+//poprzez operator przypisania
+let text = "Stoi na stacji lokomotywa,<br>";
+text += "Ciężka, ogromna i pot z niej spływa:<br>";
+text += "Tłusta oliwa.";
+
+//poprzez dodawanie części tekstu
+let text = "Stoi na stacji lokomotywa,<br>"
++ "Ciężka, ogromna i pot z niej spływa:<br>"
++ "Tłusta oliwa."
+
+//Poprzez zastosowanie znaku backslash na końcu linii
+let text = "Stoi na stacji lokomotywa,<br>\
+Ciężka, ogromna i pot z niej spływa:<br>\
+Tłusta oliwa.\
+"
+
+//Najlepsza metoda - użycie template strings
+let text = `Stoi na stacji lokomotywa,<br>
+Ciężka, ogromna i pot z niej spływa:<br>
+Tłusta oliwa.

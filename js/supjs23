@@ -1,0 +1,72 @@
+<form class="form form-error-inline" id="<?=$formID?>" method="post" action="">
+    <div class="form-row">
+        <label for="<?=$formID?>-name">Imię (min. 3 znaki)*</label>
+        <input type="text" name="name" required pattern=".{3,}" id="<?=$formID?>-name">
+        <div class="form-error-text">Wpisz poprawne imię</div>
+    </div>
+    <div class="form-row">
+        <label for="<?=$formID?>-email">Email*</label>
+        <input type="email" name="email" required id="<?=$formID?>-email">
+        <div class="form-error-text">Wpisz poprawny email</div>
+    </div>
+    <div class="form-row">
+        <button type="submit" class="button submit-btn">
+            Wyślij
+        </button>
+    </div>
+</form>
+
+function toggleErrorField(field, show) {
+    const errorText = field.nextElementSibling;
+    if (errorText !== null) {
+        if (errorText.classList.contains("form-error-text")) {
+            errorText.style.display = show ? "block" : "none";
+            errorText.setAttribute('aria-hidden', show);
+        }
+    }
+};
+
+function markFieldAsError(field, show) {
+    if (show) {
+        field.classList.add("field-error");
+    } else {
+        field.classList.remove("field-error");
+        toggleErrorField(field, false);
+    }
+};
+
+//pobieram elementy
+const form = document.querySelector("form");
+const inputName = form.querySelector("input[name=name]");
+const inputEmail = form.querySelector("input[name=email]");
+const inputs = [inputName, inputEmail];
+
+form.setAttribute("novalidate", true);
+
+//etap 1 : podpinam eventy
+for (const el of inputs) {
+    el.addEventListener("input", e => markFieldAsError(e.target, !e.target.checkValidity()));
+}
+
+form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    let formErrors = false;
+
+    //2 etap - sprawdzamy poszczególne pola gdy ktoś chce wysłać formularz
+    for (const el of [inputName, inputEmail]) {
+        markFieldAsError(el, false);
+        toggleErrorField(el, false);
+
+        if (!el.checkValidity()) {
+            markFieldAsError(el, true);
+            toggleErrorField(el, true);
+            formErrors = true;
+        }
+    }
+
+    if (!formErrors) {
+        e.target.submit();
+    }
+});
+Imię (min. 3 znaki)*

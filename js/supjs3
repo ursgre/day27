@@ -1,0 +1,7 @@
+const tab = ["Marcin", "Ania", "Agnieszka"];
+
+tab[3] = "Piotrek";
+//lub
+tab[tab.length] = "Piotrek";
+
+console.log(tab); //[Marcin, Ania, Agnieszka, Piotrek]

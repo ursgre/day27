@@ -1,0 +1,9 @@
+const tab = ["Marcin", "Ania", "Agnieszka", "Monika"];
+
+if (tab.includes("Ania")) {
+    console.log("Ania występuje w tablicy pod indeksem", tab.indexOf("Ania"));
+}
+
+if (!tab.includes("Pies")) {
+    console.log("Pies nie występuje w tej tablicy");
+}

@@ -1,0 +1,11 @@
+const txt = new String("Ala ma kota");
+const nr = new Number(23);
+const bool = new Boolean(true);
+const tab = new Array(1, 2, 3);
+const ob = new Object();
+
+console.log(typeof txt); //"object"
+console.log(typeof nr); //"object"
+console.log(typeof bool); //"object"
+console.log(typeof tab); //"object"
+console.log(typeof ob); //"object"

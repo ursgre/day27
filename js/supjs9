@@ -1,0 +1,7 @@
+function writeText(name, age) {
+    console.log(`${name} ma kota, który ma ${age} lat`);
+}
+
+writeText("Ala", 5); //"Ala ma kota, który ma 5 lat"
+writeText("Marysia"); //"Marysia ma kota, który ma undefined lat"
+writeText(); //"undefined ma kota, który ma undefined lat"

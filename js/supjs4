@@ -1,0 +1,8 @@
+const tab = ["ala", "bala"]
+const ob = { name : "Piotr" }
+
+console.log(Array.isArray(tab)); //true
+console.log(Array.isArray(ob)); //false
+
+console.log(typeof tab); //"object";
+console.log(typeof ob); //"object";

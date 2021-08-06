@@ -1,0 +1,6 @@
+function lineText(name, pet) {
+    console.log(name + " ma " + pet);
+}
+
+lineText("Ola", "kota"); //Ola ma kota
+lineText("Ala", "psa"); //Ala ma psa

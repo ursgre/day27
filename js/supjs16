@@ -1,0 +1,9 @@
+function sumNumbers() {
+    const sum = arguments.reduce(function(a, b) { //błąd, reduce jest dla tablic
+        return a + b;
+    });
+
+    return sum;
+}
+
+sumNumbers(1, 2, 3, 4);

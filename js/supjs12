@@ -1,0 +1,15 @@
+const text = "Ala ma kota";
+
+//sprawdzamy czy ciąg "psa" istnieje
+if (text.indexOf("psa") > -1) {
+    console.log("Ala ma psa" );
+} else {
+    console.log("Ala ma kota" );
+}
+
+
+if (~text.indexOf("psa")) {
+    console.log("Ala ma psa" );
+} else {
+    console.log("Ala ma kota" );
+}p

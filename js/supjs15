@@ -1,0 +1,8 @@
+function print(name = "Michał", status = "najlepszy") {
+    console.log(name + " jest " + status);
+}
+
+print(); //"Michał jest najlepszy"
+print("Karol"); //"Karol jest najlepszy"
+print("Paweł", "wysoki"); //"Paweł jest wysoki"
+print(undefined, "wysoki"); //"Michał jest wysoki" - undefined jest traktowane jak niepodanie wartości

@@ -1,0 +1,27 @@
+<form>
+    <select id="firstSelect" multiple="multiple">
+        <option value="1"> opcja 1 </option>
+        <option value="2"> opcja 2 </option>
+        <option value="3"> opcja 3 </option>
+    </select>
+
+    <select id="secondSelect" multiple="multiple">
+    </select>
+
+    <button type="button" id="copySelect">Kopiuj zaznaczone elementy option</button>
+</form>
+
+function copyOptions() {
+    for (const option of select1.options){
+        if (option.selected) {
+            select2[select2.length] = new Option(option.innerText, option.value);
+        }
+    }
+}
+
+const form = document.querySelector(".form-move");
+const select1 = form.querySelector("select[name=firstSelect]");
+const select2 = form.querySelector("select[name=secondSelect]");
+const btn = form.querySelector(".button");
+
+btn.addEventListener("click", copyOptions);

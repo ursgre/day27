@@ -1,0 +1,15 @@
+const form = document.querySelector("#formFruit");
+const checkboxes = form.querySelectorAll("input[name=fruit]");
+const fruitsResult = document.querySelector("#fruitsResult");
+
+for (const chk of checkboxes) {
+    chk.addEventListener("change", e => {
+        let checkedCount = 0;
+        for (const chk of checkboxes) {
+            if (chk.checked) {
+                checkedCount++;
+            }
+        }
+        fruitsResult.innerText = checkedCount;
+    });
+}
